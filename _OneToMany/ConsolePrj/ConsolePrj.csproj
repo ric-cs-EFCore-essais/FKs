@@ -6,11 +6,7 @@
   </PropertyGroup>
 
     <ItemGroup>
-    <AssetsSourceFiles Include="./../../../.specificitesPoste/**/*.*" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="Infra.Common.DataAccess" Version="2.0.0" />
+      <PackageReference Include="Infra.Common.DataAccess" Version="2.0.1" />
       <PackageReference Include="Infra.Common.DataAccess.Interfaces" Version="1.0.0" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.17">
         <PrivateAssets>all</PrivateAssets>
@@ -22,6 +18,10 @@
     <ItemGroup>
       <ProjectReference Include="..\Infra.DataAccess\Infra.DataAccess.csproj" />
     </ItemGroup>
+	
+    <ItemGroup>
+        <AssetsSourceFiles Include="./../../../.specificitesPoste/**/*.*" />
+    </ItemGroup>		
     <Target Name="CopyCustomContent" AfterTargets="AfterBuild">
 	    <Copy SourceFiles="@(AssetsSourceFiles)" DestinationFolder="$(OutDir)/_MyAssets" SkipUnchangedFiles="true" />
     </Target>
