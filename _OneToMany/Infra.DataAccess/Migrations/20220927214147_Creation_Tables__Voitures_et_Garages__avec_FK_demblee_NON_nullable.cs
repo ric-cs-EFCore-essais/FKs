@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DataAccess.Migrations
+namespace Infra.DataAccess.Migrations
 {
     public partial class Creation_Tables__Voitures_et_Garages__avec_FK_demblee_NON_nullable : Migration
     {

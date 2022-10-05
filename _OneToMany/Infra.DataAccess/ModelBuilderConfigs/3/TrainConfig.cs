@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Domaine.MyEntities;
 
 
-namespace DataAccess.ModelBuilderConfigs
+namespace Infra.DataAccess.ModelBuilderConfigs
 {
     public class TrainConfig : IEntityTypeConfiguration<Train>
     {

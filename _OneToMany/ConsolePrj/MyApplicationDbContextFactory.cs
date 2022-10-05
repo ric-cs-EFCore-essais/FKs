@@ -1,8 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-using DataAccess;
+using Transverse.Common.DebugTools;  //Issu d'un Nuget perso. mis dans ./../../../zzzzCommon/zzMyLocalPublishedPackages/
 
+using Infra.Common.DataAccess.Interfaces;  //Issu d'un Nuget perso. mis dans ./../../../zzzzCommon/zzMyLocalPublishedPackages/
+using Infra.Common.DataAccess;  //Issu d'un Nuget perso. mis dans ./../../../zzzzCommon/zzMyLocalPublishedPackages/
+
+using Infra.DataAccess;
 
 namespace ConsolePrj
 {
@@ -10,20 +14,17 @@ namespace ConsolePrj
     {
         public MyApplicationDbContext CreateDbContext(string[] args)
         {
+            IDBServerAccessConfiguration dbServerAccessConfiguration = new DBServerAccessConfiguration()
+            {
+                DatabaseName = "Essais_EF_Relationships_OneToMany"
+            };
+            Debug.ShowData(dbServerAccessConfiguration);
+
+            var connectionString = dbServerAccessConfiguration.GetConnectionString();
+
             var optionsBuilder = new DbContextOptionsBuilder<MyApplicationDbContext>();
 
-            string server = string.Empty;
-            string user = string.Empty;
-            string password = string.Empty;
-            string databaseName = string.Empty;
-
-            server = @"PC-RP-VM-W10PRO\SQL_SERVER_2019"; user = "SA2"; databaseName = "Essais2_EF_Relationships";
-
-            //server = "localhost,17433"; user = "SA3"; databaseName = "Essais2_EF_Relationships";  //Job
-
-            password = "SS2019PSw";
-
-            optionsBuilder.UseSqlServer(@$"Server={server}; Database={databaseName}; User Id={user}; Password={password};");
+            optionsBuilder.UseSqlServer(connectionString);
 
             return new MyApplicationDbContext(optionsBuilder.Options);
         }

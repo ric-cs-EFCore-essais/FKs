@@ -12,11 +12,13 @@ namespace Domaine.MyEntities
         public string Reference { get; set; }
 
         public IList<Article> Articles { get; set; } //<<< Le simple fait d'avoir ceci, fait que d'emblée :
-                                                       //     la table Articles va se voir ajouter automatiquement un champ FK
-                                                       //     de nom PAR DEFAUT : PanierId (c-à-d : [NomEntite][NomChampPKDeCetteEntite])
-                                                       //                         FK alors PAR DEFAUT, sans autre précision :
-                                                       //                           de type int, et nullable attention.
-                                                       //           Rem.:  ici (dans PanierConfig) on renomme cette FK.
+                                                     //     la table Articles va se voir ajouter automatiquement un champ FK
+                                                     //     de nom PAR DEFAUT : PanierId (c-à-d : [NomEntite][NomChampPKDeCetteEntite])
+                                                     //                         FK alors PAR DEFAUT, sans autre précision :
+                                                     //                           de type int, et nullable attention.
+                                                     //           Rem.:  ici (dans PanierConfig) on renomme cette FK.
+
+        public double MontantTotal { get; set; } //Sera float en base.
     }
 }
 

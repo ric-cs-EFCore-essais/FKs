@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Domaine.MyEntities;
 
 
-namespace DataAccess.ModelBuilderConfigs
+namespace Infra.DataAccess.ModelBuilderConfigs
 {
     public class PassagerConfig : IEntityTypeConfiguration<Passager>
     {
@@ -24,6 +24,11 @@ namespace DataAccess.ModelBuilderConfigs
                 .IsRequired() //<<< S'applique au champ juste ci-dessus, donc à la FK : <<<< et c'est grâce à ce IsRequired()
                               //    que cette FK sera NON nullable !!!
                 ;
+
+            entityModelBuilder 
+                .HasIndex(passager => new { passager.NumeroSecu }) 
+                .IsUnique(); //PAS DE DOUBLON autorisé sur ce champ
+
 
             //AIDE requête SQL de visu. :
             // select * from dbo.Passagers as P

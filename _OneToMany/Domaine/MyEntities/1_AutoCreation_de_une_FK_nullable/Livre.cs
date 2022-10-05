@@ -20,8 +20,8 @@ namespace Domaine.MyEntities
         //L'inconvénient de ne pas avoir explicitement déclaré ici une FK (BibliothequeId) vers Bibliotheque, fait que 
         //celle-ci est automatiquement créée par EF en base(comme expliquée) MAIS cette FK est alors nullable :/
         // Pour rattrapper le coup, j'ai donc ajouté ensuite dans LivreConfig, ceci (qui marche nickel) :
-        //    entityModelBuilder.Property("BibliothequeId").IsRequired();
-        //    Rem.: syntaxe  entityModelBuilder.Property(livre => livre.BibliothequeId).IsRequired();
+        //    entityModelBuilder.Property("BibliothequeId").IsRequired()
+        //    Rem.: syntaxe  entityModelBuilder.Property(livre => livre.BibliothequeId).IsRequired()
         //          interdite CAR justement le membre BibliothequeId n'existe PAS dans l'entité Livre (mais existe bien en base par contre).  
     }
 }

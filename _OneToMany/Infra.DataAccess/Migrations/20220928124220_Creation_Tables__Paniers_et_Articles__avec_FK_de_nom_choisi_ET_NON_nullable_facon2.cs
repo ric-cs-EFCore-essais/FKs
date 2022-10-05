@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DataAccess.Migrations
+namespace Infra.DataAccess.Migrations
 {
-    public partial class Creation_Tables__Trains_et_Passagers__avec_FK_de_nom_choisi_ET_NON_nullable : Migration
+    public partial class Creation_Tables__Paniers_et_Articles__avec_FK_de_nom_choisi_ET_NON_nullable_facon2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Trains",
+                name: "Paniers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -16,42 +16,42 @@ namespace DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Trains", x => x.Id);
+                    table.PrimaryKey("PK_Paniers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Passagers",
+                name: "Articles",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NumeroSecu = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    My_TrainId_FK = table.Column<int>(type: "int", nullable: false)
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    My_PanierId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Passagers", x => x.Id);
+                    table.PrimaryKey("PK_Articles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Passagers_Trains_My_TrainId_FK",
-                        column: x => x.My_TrainId_FK,
-                        principalTable: "Trains",
+                        name: "FK_Articles_Paniers_My_PanierId",
+                        column: x => x.My_PanierId,
+                        principalTable: "Paniers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Passagers_My_TrainId_FK",
-                table: "Passagers",
-                column: "My_TrainId_FK");
+                name: "IX_Articles_My_PanierId",
+                table: "Articles",
+                column: "My_PanierId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Passagers");
+                name: "Articles");
 
             migrationBuilder.DropTable(
-                name: "Trains");
+                name: "Paniers");
         }
     }
 }

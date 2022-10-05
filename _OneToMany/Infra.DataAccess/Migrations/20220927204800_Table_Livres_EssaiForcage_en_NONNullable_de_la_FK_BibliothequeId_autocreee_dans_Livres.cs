@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DataAccess.Migrations
+namespace Infra.DataAccess.Migrations
 {
     public partial class Table_Livres_EssaiForcage_en_NONNullable_de_la_FK_BibliothequeId_autocreee_dans_Livres : Migration
     {

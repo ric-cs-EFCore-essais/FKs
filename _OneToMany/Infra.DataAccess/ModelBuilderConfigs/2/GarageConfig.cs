@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Domaine.MyEntities;
 
 
-namespace DataAccess.ModelBuilderConfigs
+namespace Infra.DataAccess.ModelBuilderConfigs
 {
     public class GarageConfig : IEntityTypeConfiguration<Garage>
     {
@@ -13,6 +13,10 @@ namespace DataAccess.ModelBuilderConfigs
             entityModelBuilder
                 .Property(garage => garage.Nom)
                 .IsRequired();
+
+            entityModelBuilder
+                .HasIndex(garage => new { garage.Nom })
+                .IsUnique(); //PAS DE DOUBLON autorisé sur ce champ
         }
     }
 }

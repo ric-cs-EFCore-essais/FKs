@@ -2,9 +2,9 @@
 
 
 using Domaine.MyEntities;
-using DataAccess.ModelBuilderConfigs;
+using Infra.DataAccess.ModelBuilderConfigs;
 
-namespace DataAccess
+namespace Infra.DataAccess
 {
     public class MyApplicationDbContext : DbContext
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DataAccess.Migrations
+namespace Infra.DataAccess.Migrations
 {
     public partial class CreationBase_et_Tables_Bibliotheques_et_Livres : Migration
     {
