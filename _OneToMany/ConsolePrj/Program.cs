@@ -1,8 +1,8 @@
 ﻿using System;
 
-using Infra.Common.DataAccess.Interfaces;  //Issu d'un Nuget perso. mis dans ./../../../zzzzCommon/zzMyLocalPublishedPackages/
-using Infra.Common.DataAccess;  //Issu d'un Nuget perso. mis dans ./../../../zzzzCommon/zzMyLocalPublishedPackages/
-using Transverse.Common.DebugTools;  //Issu d'un Nuget perso. mis dans ./../../../zzzzCommon/zzMyLocalPublishedPackages/
+using Infra.Common.DataAccess.Interfaces;  //Issu d'un Nuget perso. mis dans ./../../../../____Common/zzMyLocalPublishedPackages/
+using Infra.Common.DataAccess;  //Issu d'un Nuget perso. mis dans ./../../../../____Common/zzMyLocalPublishedPackages/
+using Transverse.Common.DebugTools;  //Issu d'un Nuget perso. mis dans ./../../../../____Common/zzMyLocalPublishedPackages/
 
 namespace ConsolePrj
 {
